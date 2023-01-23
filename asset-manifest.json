@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hillel-react-hw-39/static/css/main.7acaea2f.css",
-    "main.js": "/hillel-react-hw-39/static/js/main.07d3183d.js",
+    "main.css": "/hillel-react-hw-39/static/css/main.03be3726.css",
+    "main.js": "/hillel-react-hw-39/static/js/main.e1f71ccf.js",
     "index.html": "/hillel-react-hw-39/index.html",
-    "main.7acaea2f.css.map": "/hillel-react-hw-39/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/hillel-react-hw-39/static/js/main.07d3183d.js.map"
+    "main.03be3726.css.map": "/hillel-react-hw-39/static/css/main.03be3726.css.map",
+    "main.e1f71ccf.js.map": "/hillel-react-hw-39/static/js/main.e1f71ccf.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.03be3726.css",
+    "static/js/main.e1f71ccf.js"
   ]
 }
