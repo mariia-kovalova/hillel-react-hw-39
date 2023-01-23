@@ -1,7 +1,7 @@
-import { UserItem } from '../UserItem/UserItem';
 import PropTypes from 'prop-types';
+import { UserItem } from '../UserItem/UserItem';
 
-export function UsersList({ usersInfo, onDelete }) {
+export function UsersList({ users }) {
   return (
     <div className="container">
       <table>
@@ -15,14 +15,13 @@ export function UsersList({ usersInfo, onDelete }) {
           </tr>
         </thead>
         <tbody>
-          {usersInfo.map(({ id, name, username, phone }) => (
+          {users.map(({ id, name, username, phone }) => (
             <UserItem
               key={id}
               id={id}
               name={name}
               username={username}
               phone={phone}
-              onDelete={onDelete}
             />
           ))}
         </tbody>
@@ -32,6 +31,5 @@ export function UsersList({ usersInfo, onDelete }) {
 }
 
 UsersList.propTypes = {
-  usersInfo: PropTypes.arrayOf(PropTypes.object.isRequired),
-  onDelete: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(PropTypes.object.isRequired),
 };

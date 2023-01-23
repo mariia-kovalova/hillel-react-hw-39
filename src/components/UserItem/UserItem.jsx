@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Button } from 'GlobalStyles.styled';
 
 export function UserItem({ id, name, username, phone }) {
   return (
@@ -9,7 +9,7 @@ export function UserItem({ id, name, username, phone }) {
       <td>{username}</td>
       <td>{phone}</td>
       <td>
-        <Button type="button">Albums</Button>
+        <Link to={`${id}`}>Albums</Link>
       </td>
     </tr>
   );

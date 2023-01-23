@@ -1,33 +1,19 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { UsersList } from './UsersList/UsersList';
-import { ModalWindow } from './ModalWindow/ModalWindow';
-
-const FETCH_URL = 'https://jsonplaceholder.typicode.com/users';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import { Home } from 'pages/Home';
+import { About } from 'pages/About';
+import { Users } from 'pages/Users';
+import { UserAlbums } from 'pages/UserAlbums';
+import { Routes, Route } from 'react-router-dom';
 
 export function App() {
-  const [users, setUsers] = useState([]);
-  // const [isModalOpen, setModalOpen] = useState(false);
-
-  useEffect(() => {
-    axios.get(FETCH_URL).then(res => {
-      setUsers(res.data);
-    });
-  }, []);
-
-  function deleteUserById(userId) {
-    const newUsers = users.filter(({ id }) => id !== userId);
-    setUsers(newUsers);
-  }
-
   return (
-    <>
-      <UsersList usersInfo={users} onDelete={deleteUserById} />
-      {/*       
-      <ModalWindow
-        isOpen={isModalOpen}
-        onClose={() => setModalOpen(false)}
-      ></ModalWindow> */}
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="users" element={<Users />} />
+        <Route path="users/:id" element={<UserAlbums />} />
+      </Route>
+    </Routes>
   );
 }
