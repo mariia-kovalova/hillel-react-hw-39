@@ -1,17 +1,24 @@
 import { AlbumsList } from 'components/AlbumsList/AlbumsList';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { getAlbums } from 'utils/jsonApi';
 
 export const UserAlbums = () => {
-  const { id } = useParams();
+  const { userId } = useParams();
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    getAlbums(id, setAlbums);
-  }, [id]);
+    getAlbums(userId, setAlbums);
+  }, [userId]);
 
-  console.log(albums);
-
-  return <AlbumsList albums={albums} />;
+  return (
+    <>
+      <section>
+        <AlbumsList albums={albums} />
+      </section>
+      <section>
+        <Outlet />
+      </section>
+    </>
+  );
 };

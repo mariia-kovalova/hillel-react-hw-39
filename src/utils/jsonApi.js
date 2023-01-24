@@ -10,11 +10,11 @@ export const getUsers = setUsers => {
     .catch(err => console.log(err));
 };
 
-export const getAlbums = (id, setAlbums) => {
+export const getAlbums = (userId, setAlbums) => {
   const URL = `${BASE_URL}/albums`;
   const parameters = {
     params: {
-      userId: id,
+      userId,
     },
   };
   axios
@@ -25,15 +25,11 @@ export const getAlbums = (id, setAlbums) => {
     });
 };
 
-export const getPhotos = (id, setPhotos) => {
-  const URL = `${BASE_URL}/albums`;
-  const parameters = {
-    params: {
-      albumId: id,
-    },
-  };
+export const getPhotos = (albumId, setPhotos) => {
+  const URL = `${BASE_URL}/albums/${albumId}/photos`;
+
   axios
-    .get(URL, parameters)
+    .get(URL)
     .then(({ data }) => setPhotos(data))
     .catch(error => {
       console.log(error);

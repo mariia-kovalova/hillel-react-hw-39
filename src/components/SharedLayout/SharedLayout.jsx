@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router-dom';
-import { Container, Header, Logo, NavbarLink } from 'GlobalStyles.styled';
+import { Header, Logo, NavbarLink } from 'GlobalStyles.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
 export const SharedLayout = () => {
   return (
-    <Container>
+    <div className="container">
       <Header>
-        <Logo to="/" end>
+        <Logo to="/">
           <FontAwesomeIcon icon={faUsers} /> Contacts Site
         </Logo>
         <nav>
@@ -19,6 +19,6 @@ export const SharedLayout = () => {
         </nav>
       </Header>
       <Outlet />
-    </Container>
+    </div>
   );
 };
