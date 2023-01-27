@@ -1,17 +1,34 @@
+import { useEffect } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAlbums } from 'redux/operations';
+import {
+  selectAlbums,
+  selectErrorAlbums,
+  selectIsLoadingAlbums,
+} from 'redux/selectors';
 import { AlbumsList } from 'components/AlbumsList/AlbumsList';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getAlbums } from 'utils/jsonApi';
 
 export const UserAlbums = () => {
-  const { id } = useParams();
-  const [albums, setAlbums] = useState([]);
-
+  const { userId } = useParams();
+  const dispatch = useDispatch();
+  const albums = useSelector(selectAlbums);
+  const error = useSelector(selectErrorAlbums);
+  const isLoading = useSelector(selectIsLoadingAlbums);
   useEffect(() => {
-    getAlbums(id, setAlbums);
-  }, [id]);
+    dispatch(fetchAlbums(userId));
+  }, [dispatch, userId]);
 
-  console.log(albums);
-
-  return <AlbumsList albums={albums} />;
+  return (
+    <>
+      <section>
+        {!isLoading && <AlbumsList albums={albums} />}
+        {isLoading && <b>Loading albums...</b>}
+        {error && <b>{error}</b>}
+      </section>
+      <section>
+        <Outlet />
+      </section>
+    </>
+  );
 };

@@ -1,13 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from 'redux/operations';
+import {
+  selectUsers,
+  selectErrorUsers,
+  selectIsLoadingUsers,
+} from 'redux/selectors';
 import { UsersList } from 'components/UsersList/UsersList';
-import { getUsers } from 'utils/jsonApi';
 
 export const Users = () => {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  const items = useSelector(selectUsers);
+  const isLoading = useSelector(selectIsLoadingUsers);
+  const error = useSelector(selectErrorUsers);
 
   useEffect(() => {
-    getUsers(setUsers);
-  }, []);
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
-  return <UsersList users={users} />;
+  return (
+    <>
+      {!isLoading && <UsersList users={items} />}
+      {isLoading && <b>Loading users...</b>}
+      {error && <b>{error}</b>}
+    </>
+  );
 };
