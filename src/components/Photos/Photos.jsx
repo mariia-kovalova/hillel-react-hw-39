@@ -1,23 +1,41 @@
-import { Photo } from 'components/Photo/Photo';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPhotos } from 'redux/operations';
+import {
+  selectPhotos,
+  selectErrorPhotos,
+  selectIsLoadingPhotos,
+} from 'redux/selectors';
 import { useParams } from 'react-router-dom';
-import { getPhotos } from 'utils/jsonApi';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
+import { Photo } from 'components/Photo/Photo';
 import { Gallery } from 'GlobalStyles.styled';
 
 export const Photos = () => {
   const { albumId } = useParams();
-  const [photos, setPhotos] = useState([]);
+  const dispatch = useDispatch();
+  const photos = useSelector(selectPhotos);
+  const error = useSelector(selectErrorPhotos);
+  const isLoading = useSelector(selectIsLoadingPhotos);
 
   useEffect(() => {
-    getPhotos(albumId, setPhotos);
-  }, [albumId]);
+    dispatch(fetchPhotos(albumId));
+  }, [albumId, dispatch]);
 
   return (
-    <Gallery>
-      {photos.map(({ id }) => (
-        <Photo key={id} color={getRandomHexColor()} />
-      ))}
+    <Gallery className="gallery">
+      {isLoading && <b>Loading photos...</b>}
+      {error && <b>{error}</b>}
+      {!isLoading &&
+        photos.map(({ id, thumbnailUrl, title, url }) => (
+          <Photo
+            key={id}
+            thumbnailUrl={thumbnailUrl}
+            title={title}
+            url={url}
+            color={getRandomHexColor()}
+          />
+        ))}
     </Gallery>
   );
 };

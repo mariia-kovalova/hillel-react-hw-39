@@ -6,7 +6,7 @@ export const AlbumItem = ({ id, title }) => {
   return (
     <PhotosLi>
       <p>{capitalize(title)}</p>
-      <PhotosLink to={`photos/${id}`}>Photos</PhotosLink>
+      <PhotosLink to={`${id}/photos`}>Photos</PhotosLink>
     </PhotosLi>
   );
 };

@@ -9,7 +9,7 @@ export function UserItem({ id, name, username, phone }) {
       <td>{username}</td>
       <td>{phone}</td>
       <td>
-        <Link to={`${id}/albums`}>Albums</Link>
+        <Link to={`/user/${id}/albums`}>Albums</Link>
       </td>
     </tr>
   );

@@ -13,8 +13,8 @@ export function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="users" element={<Users />} />
-        <Route path="users/:userId/albums" element={<UserAlbums />}>
-          <Route path="photos/:albumId" element={<Photos />} />
+        <Route path="user/:userId/albums" element={<UserAlbums />}>
+          <Route path=":albumId/photos" element={<Photos />} />
         </Route>
       </Route>
     </Routes>
