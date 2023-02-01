@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchUsers } from '../operations';
 
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
+
 const usersSlice = createSlice({
   name: 'users',
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  initialState,
   extraReducers: {
     [fetchUsers.pending](state) {
       state.isLoading = true;

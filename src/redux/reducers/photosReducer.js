@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchPhotos } from '../operations';
 
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
+
 const photosSlice = createSlice({
   name: 'photos',
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  initialState,
   extraReducers: {
     [fetchPhotos.pending](state) {
       state.isLoading = true;

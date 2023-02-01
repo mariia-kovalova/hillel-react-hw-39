@@ -1,18 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchUser } from '../operations';
 
+const initialState = {
+  info: {},
+  isLoading: false,
+  error: null,
+};
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    info: {
-      id: 1,
-      name: '',
-      username: '',
-      email: '',
-    },
-    isLoading: false,
-    error: null,
-  },
+  initialState,
   extraReducers: {
     [fetchUser.pending](state) {
       state.isLoading = true;
@@ -20,10 +17,7 @@ const userSlice = createSlice({
     [fetchUser.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.info.id = action.payload.id;
-      state.info.name = action.payload.name;
-      state.info.username = action.payload.username;
-      state.info.email = action.payload.email;
+      state.info = action.payload;
     },
     [fetchUser.rejected](state, action) {
       state.isLoading = false;
