@@ -21,12 +21,12 @@ export const UserAlbums = () => {
 
   return (
     <>
-      <section>
+      <section className="container">
         {!isLoading && <AlbumsList albums={albums} />}
         {isLoading && <b>Loading albums...</b>}
         {error && <b>{error}</b>}
       </section>
-      <section>
+      <section className="container">
         <Outlet />
       </section>
     </>

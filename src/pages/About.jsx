@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <main>
+    <section className="container">
       <h1>About Us</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus
@@ -15,6 +15,6 @@ export const About = () => {
         dolorum illum voluptatum dolores! Quas perferendis quis alias excepturi
         eaque voluptatibus eveniet error, nulla rem iusto?
       </p>
-    </main>
+    </section>
   );
 };

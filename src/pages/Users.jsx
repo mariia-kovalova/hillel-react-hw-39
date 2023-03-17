@@ -19,10 +19,10 @@ export const Users = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <section className="container">
       {!isLoading && <UsersList users={items} />}
       {isLoading && <b>Loading users...</b>}
       {error && <b>{error}</b>}
-    </>
+    </section>
   );
 };

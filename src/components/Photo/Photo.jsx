@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { PhotoCard } from 'GlobalStyles.styled';
+import { PhotoCard } from 'components/GlobalStyles.styled';
 
 export const Photo = ({ thumbnailUrl, title, url, color }) => {
   const [isLoading, setLoading] = useState(true);

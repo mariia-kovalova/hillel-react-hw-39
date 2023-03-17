@@ -9,7 +9,7 @@ import {
 import { useParams } from 'react-router-dom';
 import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { Photo } from 'components/Photo/Photo';
-import { Gallery } from 'GlobalStyles.styled';
+import { Gallery } from 'components/GlobalStyles.styled';
 
 export const Photos = () => {
   const { albumId } = useParams();
