@@ -1,8 +1,7 @@
 import { Outlet } from 'react-router-dom';
-import { Header, Logo, NavbarLink } from 'components/GlobalStyles.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import { Main } from './SharedLayout.styled';
+import { Header, Logo, NavbarLink, Main } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (

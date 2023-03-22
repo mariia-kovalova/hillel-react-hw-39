@@ -7,9 +7,8 @@ import {
   selectIsLoadingPhotos,
 } from 'redux/selectors';
 import { useParams } from 'react-router-dom';
-import { getRandomHexColor } from 'utils/getRandomHexColor';
 import { Photo } from 'components/Photo/Photo';
-import { Gallery } from 'components/GlobalStyles.styled';
+import { Gallery } from './Photos.styled';
 
 export const Photos = () => {
   const { albumId } = useParams();
@@ -28,13 +27,7 @@ export const Photos = () => {
       {error && <b>{error}</b>}
       {!isLoading &&
         photos.map(({ id, thumbnailUrl, title, url }) => (
-          <Photo
-            key={id}
-            thumbnailUrl={thumbnailUrl}
-            title={title}
-            url={url}
-            color={getRandomHexColor()}
-          />
+          <Photo key={id} thumbnailUrl={thumbnailUrl} title={title} url={url} />
         ))}
     </Gallery>
   );

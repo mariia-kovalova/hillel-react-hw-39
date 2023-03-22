@@ -1,6 +1,6 @@
-import { PhotosLi, PhotosLink } from 'components/GlobalStyles.styled';
 import PropTypes from 'prop-types';
 import { capitalize } from 'utils/capitalize';
+import { PhotosLi, PhotosLink } from './AlbumItem.styled';
 
 export const AlbumItem = ({ id, title }) => {
   return (

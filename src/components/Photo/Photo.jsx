@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { PhotoCard } from 'components/GlobalStyles.styled';
+import { OnPhotoLoading, PhotoCard } from './Photo.styled';
+import { ModalWindow } from 'components/ModalWindow/ModalWindow';
 
-export const Photo = ({ thumbnailUrl, title, url, color }) => {
+const FALLBACK_SRC =
+  'https://ik.imagekit.io/blsadqwgu/fall_back.png?updatedAt=1679490493731';
+
+export const Photo = ({ thumbnailUrl, title, url }) => {
   const [isLoading, setLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const handleOnLoad = () => {
     setLoading(false);
@@ -15,20 +20,38 @@ export const Photo = ({ thumbnailUrl, title, url, color }) => {
     setLoading(false);
   };
 
+  const handleClick = e => {
+    e.preventDefault();
+    setImageUrl(e.currentTarget.href);
+  };
+
   return (
-    <a className="gallery__item" href={url}>
+    <>
+      {isLoading && <OnPhotoLoading>Loading...</OnPhotoLoading>}
       {isError && !isLoading ? (
-        <PhotoCard className="gallery__image" color={color} />
+        <a className="gallery__item" href={FALLBACK_SRC} onClick={handleClick}>
+          <PhotoCard className="gallery__image" src={FALLBACK_SRC} />
+        </a>
       ) : (
-        <img
-          onError={handleOnError}
-          onLoad={handleOnLoad}
-          className="gallery__image"
-          src={thumbnailUrl}
-          alt={title}
-        />
+        <a className="gallery__item" href={url} onClick={handleClick}>
+          <img
+            onError={handleOnError}
+            onLoad={handleOnLoad}
+            className="gallery__image"
+            src={thumbnailUrl}
+            alt={title}
+            width="150"
+            height="150"
+            loading="lazy"
+          />
+        </a>
       )}
-    </a>
+      {imageUrl && (
+        <ModalWindow onCloseModal={() => setImageUrl(null)}>
+          <img src={imageUrl} alt={title} />
+        </ModalWindow>
+      )}
+    </>
   );
 };
 
@@ -36,5 +59,4 @@ Photo.propTypes = {
   thumbnailUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
 };
