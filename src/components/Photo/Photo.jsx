@@ -47,7 +47,7 @@ export const Photo = ({ thumbnailUrl, title, url }) => {
       )}
       {imageUrl && (
         <ModalWindow onCloseModal={() => setImageUrl(null)}>
-          <img src={imageUrl} alt={title} />
+          <img src={imageUrl} alt={title} width="600" height="600" />
         </ModalWindow>
       )}
     </>
