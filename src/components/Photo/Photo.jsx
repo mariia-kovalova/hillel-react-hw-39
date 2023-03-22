@@ -29,15 +29,14 @@ export const Photo = ({ thumbnailUrl, title, url }) => {
     <>
       {isLoading && <OnPhotoLoading>Loading...</OnPhotoLoading>}
       {isError && !isLoading ? (
-        <a className="gallery__item" href={FALLBACK_SRC} onClick={handleClick}>
-          <PhotoCard className="gallery__image" src={FALLBACK_SRC} />
+        <a href={FALLBACK_SRC} onClick={handleClick}>
+          <PhotoCard src={FALLBACK_SRC} />
         </a>
       ) : (
-        <a className="gallery__item" href={url} onClick={handleClick}>
+        <a href={url} onClick={handleClick}>
           <img
             onError={handleOnError}
             onLoad={handleOnLoad}
-            className="gallery__image"
             src={thumbnailUrl}
             alt={title}
             width="150"

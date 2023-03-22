@@ -6,9 +6,8 @@ export const PhotoCard = styled.img`
 `;
 
 export const OnPhotoLoading = styled.div`
-  width: 150px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

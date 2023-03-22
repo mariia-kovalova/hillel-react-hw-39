@@ -8,7 +8,7 @@ import {
 } from 'redux/selectors';
 import { useParams } from 'react-router-dom';
 import { Photo } from 'components/Photo/Photo';
-import { Gallery } from './Photos.styled';
+import { Gallery, GallleryItem } from './Photos.styled';
 
 export const Photos = () => {
   const { albumId } = useParams();
@@ -22,12 +22,14 @@ export const Photos = () => {
   }, [albumId, dispatch]);
 
   return (
-    <Gallery className="gallery">
+    <Gallery>
       {isLoading && <b>Loading photos...</b>}
       {error && <b>{error}</b>}
       {!isLoading &&
         photos.map(({ id, thumbnailUrl, title, url }) => (
-          <Photo key={id} thumbnailUrl={thumbnailUrl} title={title} url={url} />
+          <GallleryItem key={id}>
+            <Photo thumbnailUrl={thumbnailUrl} title={title} url={url} />
+          </GallleryItem>
         ))}
     </Gallery>
   );
