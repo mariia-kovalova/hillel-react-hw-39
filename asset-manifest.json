@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/hillel-react-hw-39/static/css/main.14beb3a6.css",
-    "main.js": "/hillel-react-hw-39/static/js/main.b797c114.js",
+    "main.css": "/hillel-react-hw-39/static/css/main.b7bb17f9.css",
+    "main.js": "/hillel-react-hw-39/static/js/main.afc1cf1e.js",
     "static/media/roboto-all-500-normal.woff": "/hillel-react-hw-39/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/hillel-react-hw-39/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
     "static/media/roboto-all-400-normal.woff": "/hillel-react-hw-39/static/media/roboto-all-400-normal.c5d001fa922fa66a147f.woff",
@@ -35,11 +35,11 @@
     "static/media/roboto-greek-ext-300-normal.woff2": "/hillel-react-hw-39/static/media/roboto-greek-ext-300-normal.35b9d6be04b95f0f0530.woff2",
     "static/media/roboto-greek-ext-700-normal.woff2": "/hillel-react-hw-39/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/hillel-react-hw-39/index.html",
-    "main.14beb3a6.css.map": "/hillel-react-hw-39/static/css/main.14beb3a6.css.map",
-    "main.b797c114.js.map": "/hillel-react-hw-39/static/js/main.b797c114.js.map"
+    "main.b7bb17f9.css.map": "/hillel-react-hw-39/static/css/main.b7bb17f9.css.map",
+    "main.afc1cf1e.js.map": "/hillel-react-hw-39/static/js/main.afc1cf1e.js.map"
   },
   "entrypoints": [
-    "static/css/main.14beb3a6.css",
-    "static/js/main.b797c114.js"
+    "static/css/main.b7bb17f9.css",
+    "static/js/main.afc1cf1e.js"
   ]
 }
